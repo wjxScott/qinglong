@@ -1,0 +1,72 @@
+buildscript {
+    ext {
+        springBootVersion = '2.4.3'
+    }
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            allowInsecureProtocol = true
+        }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+allprojects {
+    group 'com.wjx'
+    version '1.0.0'
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'maven-publish'
+
+    //指定java版本
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    //指定编码格式
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    tasks.withType(Javadoc) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            allowInsecureProtocol = true
+        }
+        mavenCentral()
+    }
+
+    java {
+        withSourcesJar()
+        withJavadocJar()
+    }
+
+    idea {
+        module {
+            downloadSources = true
+            downloadJavadoc = true
+        }
+    }
+
+    dependencies {
+        compileOnly group: 'com.wjx', name: 'qilin', version: '1.0.0'
+//        implementation group: 'com.wjx.teemo', name: 'teemo', version: '1.0.0'
+        compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+        annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+    }
+
+    subprojects {
+
+    }
+}

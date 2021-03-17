@@ -1,0 +1,6 @@
+rootProject.name = 'qinglong'
+include 'singleton'
+include 'builder'
+include 'prototype'
+include 'factory'
+
