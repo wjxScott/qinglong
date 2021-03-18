@@ -1,6 +1,5 @@
 package com.wjx.qinglong.prototype.serializ;
 
-import com.wjx.qilin.result.Result;
 
 /**
  * @author wangjinxin
@@ -28,7 +27,6 @@ public class Main {
         secondMessage.setSubject("modified subject");
         secondMessage.setContent("modified content");
 
-        System.out.println(Result.success(mail));
         System.out.println(mail);
         System.out.println(clonedMail);
     }

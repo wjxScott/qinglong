@@ -24,6 +24,7 @@ allprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
     apply plugin: 'maven-publish'
+    apply plugin: 'io.spring.dependency-management'
 
     //指定java版本
     sourceCompatibility = 1.8
@@ -59,14 +60,15 @@ allprojects {
         }
     }
 
-    dependencies {
-        compileOnly group: 'com.wjx', name: 'qilin', version: '1.0.0'
-//        implementation group: 'com.wjx.teemo', name: 'teemo', version: '1.0.0'
-        compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
-        annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+        }
     }
 
-    subprojects {
-
+    dependencies {
+        implementation group: 'com.wjx', name: 'qilin', version: '1.0.0'
+        compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+        annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
     }
 }
