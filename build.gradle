@@ -22,6 +22,7 @@ allprojects {
     version '1.0.0'
 
     apply plugin: 'java'
+    apply plugin: 'java-library'
     apply plugin: 'idea'
     apply plugin: 'maven-publish'
     apply plugin: 'io.spring.dependency-management'
@@ -67,8 +68,7 @@ allprojects {
     }
 
     dependencies {
-        implementation group: 'com.wjx', name: 'qilin', version: '1.0.0'
-        compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
-        annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+        api group: 'com.wjx', name: 'qilin', version: '1.0.0'
+        annotationProcessor group: 'org.projectlombok', name: 'lombok'
     }
 }

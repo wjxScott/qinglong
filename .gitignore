@@ -168,3 +168,6 @@ $RECYCLE.BIN/
 .idea
 .gradle
 */build
+*/build/*
+build
+build/*
