@@ -2,6 +2,8 @@
 
 &emsp;&emsp;&emsp;&emsp;设计模式学习笔记及代码
 
+![](qinglong.jpeg)
+
 ### 创建型模式
 - singleton 单例模式
 - factory 工厂模型
